@@ -29,6 +29,17 @@ RTI_LIBS += \
 	-lnddscpp2d \
 	-Wl,--as-needed \
 
+CXXOPTS_BASE = third_party/cxxopts
+CXXOPTS_INCLUDE = ${CXXOPTS_BASE}/include
+CXXOPTS_INCLUDES += \
+	-I${CXXOPTS_INCLUDE} \
+
+
+PICOSHA2_BASE = third_party/PicoSHA2
+PICOSHA2_INCLUDES += \
+	-I${PICOSHA2_BASE}
+
+
 CXXFLAGS += \
 	-Wall \
 	-Wextra \
@@ -39,6 +50,9 @@ CXXFLAGS += \
 	-pthread \
 	${RTI_INCLUDES} \
 	${RTI_DEFINES} \
+	${CXXOPTS_INCLUDES} \
+	${PICOSHA2_INCLUDES} \
+
 
 LDFLAGS += \
 	${RTI_LIBS} \
